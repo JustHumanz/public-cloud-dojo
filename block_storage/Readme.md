@@ -23,14 +23,14 @@ HDD Spec :
 
 
 ### Resize bcache
-umount <mount path>
-growpart /dev/nvme1n1 1
-echo 1 > /sys/block/<BACKING DEV PARENT>/<BACKING DEV CHILD>/bcache/stop
-lsblk #make sure bcache0 was missing
-make-bcache -B /dev/<BACKING DEV>
-lsblk #make sure bcache0 was apper
-mount /dev/bcache0 /mnt/<mount path>
-resize2fs /dev/bcache0
+- umount <mount path>
+- growpart /dev/nvme1n1 1
+- echo 1 > /sys/block/<BACKING DEV PARENT>/<BACKING DEV CHILD>/bcache/stop
+- lsblk #make sure bcache0 was missing
+- make-bcache -B /dev/<BACKING DEV>
+- lsblk #make sure bcache0 was apper
+- mount /dev/bcache0 /mnt/<mount path>
+- resize2fs /dev/bcache0
 
 Ref:
 - https://www.spinics.net/lists/linux-bcache/msg03203.html
